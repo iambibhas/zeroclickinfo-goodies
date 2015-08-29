@@ -15,7 +15,7 @@
     "sections": {
         "Creating Database and User": [
             {
-                "val": "Create database",
+                "val": "Create a database",
                 "key": "CREATE DATABASE dbName;"
             },
             {
