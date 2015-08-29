@@ -1,0 +1,61 @@
+{
+    "id": "postgresql_cheat_sheet",
+    "name": "PostgreSQL Cheat Sheet",
+    "description": "Reference for using PostgreSQL",
+    "metadata": {
+        "sourceName": "petefreitag.com",
+        "sourceUrl": "http://www.petefreitag.com/cheatsheets/postgresql/"
+    },
+    "aliases": ["postgresql", "postgres"],
+    "template_type": "terminal",
+    "section_order": [
+        "Creating Database and User",
+        "Creating and altering tables"
+    ],
+    "sections": {
+        "Creating Database and User": [
+            {
+                "val": "Create database",
+                "key": "CREATE DATABASE dbName;"
+            },
+            {
+                "val": "Create database from command line",
+                "key": "$ createdb -U mypgsuperuser -h localhost -E UTF8 dbName"
+            },
+            {
+                "val": "Create user with password",
+                "key": "CREATE USER mypguser WITH PASSWORD 'mypguserpass';"
+            },
+            {
+                "val": "Grant all privileges to mypguser",
+                "key": "GRANT ALL PRIVILEGES ON dbName TO mypguser;"
+            }
+        ],
+        "Creating and altering tables": [
+            {
+                "key": "CREATE TABLE tableName (id serial PRIMARY KEY, name varchar(50) UNIQUE NOT NULL, dateCreated timestamp DEFAULT current_timestamp);",
+                "val": "Create table"
+            },
+            {
+                "key": "ALTER TABLE tableName ADD PRIMARY KEY (id);",
+                "val": "Add a primary key"
+            },
+            {
+                "key": "CREATE UNIQUE INDEX indexName ON tableName (columnNames)",
+                "val": "Create an unique index"
+            },
+            {
+                "key": "VACUUM ANALYZE tableName;",
+                "val": "Table maintenance"
+            },
+            {
+                "key": "COPY (SELECT * FROM tableName) to '/tmp/somefile' WITH DELIMITER ',' QUOTE '\"' CSV HEADER;",
+                "val": "Export table to a CSV file with column names"
+            },
+            {
+                "key": "COPY destTable FROM '/tmp/somefile';",
+                "val": "Import table from CSV file"
+            }
+        ]
+    }
+}
